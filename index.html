@@ -5,40 +5,20 @@
   <meta http-equiv="refresh" content="0; url=https://94ca2385-34b7-45a8-afdc-4d167d30f424-00-2h6ddb77mazd8.spock.replit.dev/dashboard">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Redirecting...</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background-color: #ffffff;
-      color: #000000;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      position: relative;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     }
     
-    .spinner-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 24px;
-    }
-    
-    .spinner {
-      width: 40px;
-      height: 40px;
-      border: 3px solid #e5e5e5;
-      border-top: 3px solid #000000;
+    .ios-spinner {
+      width: 20px;
+      height: 20px;
+      border: 2px solid #e5e7eb;
+      border-top: 2px solid #3b82f6;
       border-radius: 50%;
       animation: spin 1s linear infinite;
     }
@@ -47,80 +27,37 @@
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
-    
-    .redirect-text {
-      font-size: 16px;
-      font-weight: 400;
-      color: #666666;
-      text-align: center;
-      max-width: 400px;
-      line-height: 1.5;
-    }
-    
-    .manual-link {
-      color: #000000;
-      text-decoration: none;
-      font-weight: 500;
-      border-bottom: 1px solid transparent;
-      transition: border-bottom-color 0.2s ease;
-    }
-    
-    .manual-link:hover {
-      border-bottom-color: #000000;
-    }
-    
-    .footer {
-      position: absolute;
-      bottom: 32px;
-      font-size: 14px;
-      font-weight: 400;
-      color: #000000;
-      text-align: center;
-      line-height: 1.4;
-      text-decoration: none;
-      cursor: pointer;
-      transition: opacity 0.2s ease;
-    }
-    
-    .footer:hover {
-      opacity: 0.7;
-    }
-    
-    .footer .brand {
-      font-weight: 600;
-    }
-    
-    .footer .subtitle {
-      font-size: 12px;
-      color: #666666;
-      margin-top: 2px;
-    }
-    
-    @media (max-width: 480px) {
-      .footer {
-        bottom: 24px;
-        padding: 0 20px;
-      }
-      
-      .redirect-text {
-        font-size: 15px;
-        padding: 0 20px;
-      }
-    }
   </style>
 </head>
-<body>
-  <div class="spinner-container">
-    <div class="spinner"></div>
-    <div class="redirect-text">
-      If you are not redirected automatically, 
-      <a href="https://94ca2385-34b7-45a8-afdc-4d167d30f424-00-2h6ddb77mazd8.spock.replit.dev/dashboard" class="manual-link">click here</a>.
+<body class="bg-white min-h-screen flex flex-col items-center justify-center px-4">
+  <!-- Main Content -->
+  <div class="flex flex-col items-center space-y-6 text-center max-w-sm w-full">
+    <!-- Spinner -->
+    <div class="ios-spinner"></div>
+    
+    <!-- Main Text -->
+    <div class="space-y-2">
+      <h1 class="text-gray-900 text-lg font-medium">
+        Redirecting...
+      </h1>
+      <p class="text-gray-600 text-sm leading-relaxed">
+        If you are not redirected automatically, 
+        <a href="https://94ca2385-34b7-45a8-afdc-4d167d30f424-00-2h6ddb77mazd8.spock.replit.dev/dashboard" 
+           class="text-blue-600 font-medium hover:text-blue-700 transition-colors">
+          tap here
+        </a>.
+      </p>
     </div>
   </div>
   
-  <a href="https://t.me/tenocoofficial" class="footer" target="_blank">
-    <div class="brand">Powered by EchoNet</div>
-    <div class="subtitle">A subsidiary of Tenoco Enterprises</div>
-  </a>
+  <!-- Footer -->
+  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center">
+    <a href="https://t.me/tenocoofficial" 
+       target="_blank"
+       class="text-gray-500 text-xs hover:text-gray-700 transition-colors block">
+      <div class="font-medium">Powered by EchoNet</div>
+      <div class="mt-1">A subsidiary of Tenoco Enterprises</div>
+    </a>
+  </div>
 </body>
 </html>
