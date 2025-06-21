@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="0; url=https://94ca2385-34b7-45a8-afdc-4d167d30f424-00-2h6ddb77mazd8.spock.replit.dev/dashboard">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirecting...</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #ffffff;
+      color: #000000;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    
+    .spinner-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+    
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid #e5e5e5;
+      border-top: 3px solid #000000;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    .redirect-text {
+      font-size: 16px;
+      font-weight: 400;
+      color: #666666;
+      text-align: center;
+      max-width: 400px;
+      line-height: 1.5;
+    }
+    
+    .manual-link {
+      color: #000000;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid transparent;
+      transition: border-bottom-color 0.2s ease;
+    }
+    
+    .manual-link:hover {
+      border-bottom-color: #000000;
+    }
+    
+    .footer {
+      position: absolute;
+      bottom: 32px;
+      font-size: 14px;
+      font-weight: 400;
+      color: #000000;
+      text-align: center;
+      line-height: 1.4;
+      text-decoration: none;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+    }
+    
+    .footer:hover {
+      opacity: 0.7;
+    }
+    
+    .footer .brand {
+      font-weight: 600;
+    }
+    
+    .footer .subtitle {
+      font-size: 12px;
+      color: #666666;
+      margin-top: 2px;
+    }
+    
+    @media (max-width: 480px) {
+      .footer {
+        bottom: 24px;
+        padding: 0 20px;
+      }
+      
+      .redirect-text {
+        font-size: 15px;
+        padding: 0 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="spinner-container">
+    <div class="spinner"></div>
+    <div class="redirect-text">
+      If you are not redirected automatically, 
+      <a href="https://94ca2385-34b7-45a8-afdc-4d167d30f424-00-2h6ddb77mazd8.spock.replit.dev/dashboard" class="manual-link">click here</a>.
+    </div>
+  </div>
+  
+  <a href="https://t.me/tenocoofficial" class="footer" target="_blank">
+    <div class="brand">Powered by EchoNet</div>
+    <div class="subtitle">A subsidiary of Tenoco Enterprises</div>
+  </a>
+</body>
+</html>
