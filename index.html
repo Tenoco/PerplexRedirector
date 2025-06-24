@@ -5,31 +5,40 @@
   <meta http-equiv="refresh" content="0; url=https://94ca2385-34b7-45a8-afdc-4d167d30f424-00-2h6ddb77mazd8.spock.replit.dev/dashboard">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Redirecting...</title>
-  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #ffffff;
+      color: #000000;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
     }
     
-    .ios-card {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06), 0 4px 16px rgba(0, 0, 0, 0.04);
+    .spinner-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
     }
     
-    .ios-spinner {
-      width: 24px;
-      height: 24px;
-      border: 2.5px solid #e2e8f0;
-      border-top: 2.5px solid #007aff;
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid #e5e5e5;
+      border-top: 3px solid #000000;
       border-radius: 50%;
       animation: spin 1s linear infinite;
     }
@@ -39,130 +48,79 @@
       100% { transform: rotate(360deg); }
     }
     
-    .ios-button {
-      background: #007aff;
-      color: white;
-      transition: all 0.2s ease;
-      transform: translateY(0);
+    .redirect-text {
+      font-size: 16px;
+      font-weight: 400;
+      color: #666666;
+      text-align: center;
+      max-width: 400px;
+      line-height: 1.5;
     }
     
-    .ios-button:hover {
-      background: #0056d3;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 16px rgba(0, 122, 255, 0.3);
-    }
-    
-    .ios-button:active {
-      transform: translateY(0);
-      box-shadow: 0 2px 8px rgba(0, 122, 255, 0.2);
-    }
-    
-    .telegram-link {
-      color: #007aff;
+    .manual-link {
+      color: #000000;
       text-decoration: none;
       font-weight: 500;
-      transition: all 0.2s ease;
+      border-bottom: 1px solid transparent;
+      transition: border-bottom-color 0.2s ease;
     }
     
-    .telegram-link:hover {
-      color: #0056d3;
-      text-decoration: underline;
+    .manual-link:hover {
+      border-bottom-color: #000000;
     }
     
-    .footer-text {
-      color: #8e8e93;
-      font-size: 13px;
-      line-height: 1.4;
-    }
-    
-    .status-dot {
-      width: 8px;
-      height: 8px;
-      background: #34c759;
-      border-radius: 50%;
-      animation: pulse 2s infinite;
-    }
-    
-    @keyframes pulse {
-      0% { opacity: 1; }
-      50% { opacity: 0.5; }
-      100% { opacity: 1; }
-    }
-    
-    .connection-indicator {
-      display: flex;
-      align-items: center;
-      gap: 8px;
+    .footer {
+      position: absolute;
+      bottom: 32px;
       font-size: 14px;
-      color: #8e8e93;
+      font-weight: 400;
+      color: #000000;
+      text-align: center;
+      line-height: 1.4;
+      text-decoration: none;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+    }
+    
+    .footer:hover {
+      opacity: 0.7;
+    }
+    
+    .footer .brand {
+      font-weight: 600;
+    }
+    
+    .footer .subtitle {
+      font-size: 12px;
+      color: #666666;
+      margin-top: 2px;
+    }
+    
+    @media (max-width: 480px) {
+      .footer {
+        bottom: 24px;
+        padding: 0 20px;
+      }
+      
+      .redirect-text {
+        font-size: 15px;
+        padding: 0 20px;
+      }
     }
   </style>
 </head>
-<body class="min-h-screen flex flex-col items-center justify-center px-4 py-8">
-  <!-- Status Bar Simulation -->
-  <div class="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500 opacity-30"></div>
-  
-  <!-- Main Content -->
-  <div class="ios-card rounded-3xl p-8 max-w-sm w-full mx-auto">
-    <div class="flex flex-col items-center space-y-6 text-center">
-      <!-- App Icon Area -->
-      <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg">
-        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-        </svg>
-      </div>
-      
-      <!-- Spinner and Status -->
-      <div class="flex flex-col items-center space-y-3">
-        <div class="ios-spinner"></div>
-        <div class="connection-indicator">
-          <div class="status-dot"></div>
-          <span>Connecting...</span>
-        </div>
-      </div>
-      
-      <!-- Main Text -->
-      <div class="space-y-3">
-        <h1 class="text-gray-900 text-xl font-semibold">
-          Redirecting
-        </h1>
-        <p class="text-gray-600 text-base leading-relaxed font-medium">
-          You'll be redirected automatically in a moment
-        </p>
-      </div>
-      
-      <!-- Manual Redirect Button -->
-      <div class="w-full pt-2">
-        <a href="https://94ca2385-34b7-45a8-afdc-4d167d30f424-00-2h6ddb77mazd8.spock.replit.dev/dashboard" 
-           class="ios-button w-full py-4 px-6 rounded-2xl text-center font-semibold text-base block">
-          Continue Manually
-        </a>
-      </div>
-      
-      <!-- Alternative Text -->
-      <p class="text-gray-500 text-sm">
-        Having trouble? 
-        <a href="https://94ca2385-34b7-45a8-afdc-4d167d30f424-00-2h6ddb77mazd8.spock.replit.dev/dashboard" 
-           class="telegram-link">
-          Tap here to continue
-        </a>
-      </p>
+<body>
+  <div class="spinner-container">
+    <div class="spinner"></div>
+    <div class="redirect-text">
+      If you are not redirected automatically, 
+      <a href="https://94ca2385-34b7-45a8-afdc-4d167d30f424-00-2h6ddb77mazd8.spock.replit.dev/dashboard" class="manual-link">click here</a>.
     </div>
   </div>
   
-  <!-- Footer -->
-  <div class="mt-8 text-center">
-    <a href="https://t.me/tenocoofficial" 
-       target="_blank"
-       class="telegram-link block">
-      <div class="footer-text">
-        <div class="font-semibold">Powered by EchoNet</div>
-        <div class="mt-1 opacity-75">A subsidiary of Tenoco Enterprises</div>
-      </div>
-    </a>
-  </div>
-  
-  <!-- iOS-style Home Indicator -->
-  <div class="fixed bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-black bg-opacity-20 rounded-full"></div>
+  <a href="https://t.me/tenocoofficial" class="footer" target="_blank">
+    <div class="brand">Powered by EchoNet</div>
+    <div class="subtitle">A subsidiary of Tenoco Enterprises</div>
+  </a>
 </body>
 </html>
