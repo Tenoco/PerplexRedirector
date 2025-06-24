@@ -8,17 +8,28 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    
+    .ios-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06), 0 4px 16px rgba(0, 0, 0, 0.04);
     }
     
     .ios-spinner {
-      width: 20px;
-      height: 20px;
-      border: 2px solid #e5e7eb;
-      border-top: 2px solid #3b82f6;
+      width: 24px;
+      height: 24px;
+      border: 2.5px solid #e2e8f0;
+      border-top: 2.5px solid #007aff;
       border-radius: 50%;
       animation: spin 1s linear infinite;
     }
@@ -27,37 +38,131 @@
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
+    
+    .ios-button {
+      background: #007aff;
+      color: white;
+      transition: all 0.2s ease;
+      transform: translateY(0);
+    }
+    
+    .ios-button:hover {
+      background: #0056d3;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(0, 122, 255, 0.3);
+    }
+    
+    .ios-button:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 8px rgba(0, 122, 255, 0.2);
+    }
+    
+    .telegram-link {
+      color: #007aff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+    
+    .telegram-link:hover {
+      color: #0056d3;
+      text-decoration: underline;
+    }
+    
+    .footer-text {
+      color: #8e8e93;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+    
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: #34c759;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.5; }
+      100% { opacity: 1; }
+    }
+    
+    .connection-indicator {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: #8e8e93;
+    }
   </style>
 </head>
-<body class="bg-white min-h-screen flex flex-col items-center justify-center px-4">
+<body class="min-h-screen flex flex-col items-center justify-center px-4 py-8">
+  <!-- Status Bar Simulation -->
+  <div class="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500 opacity-30"></div>
+  
   <!-- Main Content -->
-  <div class="flex flex-col items-center space-y-6 text-center max-w-sm w-full">
-    <!-- Spinner -->
-    <div class="ios-spinner"></div>
-    
-    <!-- Main Text -->
-    <div class="space-y-2">
-      <h1 class="text-gray-900 text-lg font-medium">
-        Redirecting...
-      </h1>
-      <p class="text-gray-600 text-sm leading-relaxed">
-        If you are not redirected automatically, 
+  <div class="ios-card rounded-3xl p-8 max-w-sm w-full mx-auto">
+    <div class="flex flex-col items-center space-y-6 text-center">
+      <!-- App Icon Area -->
+      <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg">
+        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+        </svg>
+      </div>
+      
+      <!-- Spinner and Status -->
+      <div class="flex flex-col items-center space-y-3">
+        <div class="ios-spinner"></div>
+        <div class="connection-indicator">
+          <div class="status-dot"></div>
+          <span>Connecting...</span>
+        </div>
+      </div>
+      
+      <!-- Main Text -->
+      <div class="space-y-3">
+        <h1 class="text-gray-900 text-xl font-semibold">
+          Redirecting
+        </h1>
+        <p class="text-gray-600 text-base leading-relaxed font-medium">
+          You'll be redirected automatically in a moment
+        </p>
+      </div>
+      
+      <!-- Manual Redirect Button -->
+      <div class="w-full pt-2">
         <a href="https://94ca2385-34b7-45a8-afdc-4d167d30f424-00-2h6ddb77mazd8.spock.replit.dev/dashboard" 
-           class="text-blue-600 font-medium hover:text-blue-700 transition-colors">
-          tap here
-        </a>.
+           class="ios-button w-full py-4 px-6 rounded-2xl text-center font-semibold text-base block">
+          Continue Manually
+        </a>
+      </div>
+      
+      <!-- Alternative Text -->
+      <p class="text-gray-500 text-sm">
+        Having trouble? 
+        <a href="https://94ca2385-34b7-45a8-afdc-4d167d30f424-00-2h6ddb77mazd8.spock.replit.dev/dashboard" 
+           class="telegram-link">
+          Tap here to continue
+        </a>
       </p>
     </div>
   </div>
   
   <!-- Footer -->
-  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center">
+  <div class="mt-8 text-center">
     <a href="https://t.me/tenocoofficial" 
        target="_blank"
-       class="text-gray-500 text-xs hover:text-gray-700 transition-colors block">
-      <div class="font-medium">Powered by EchoNet</div>
-      <div class="mt-1">A subsidiary of Tenoco Enterprises</div>
+       class="telegram-link block">
+      <div class="footer-text">
+        <div class="font-semibold">Powered by EchoNet</div>
+        <div class="mt-1 opacity-75">A subsidiary of Tenoco Enterprises</div>
+      </div>
     </a>
   </div>
+  
+  <!-- iOS-style Home Indicator -->
+  <div class="fixed bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-black bg-opacity-20 rounded-full"></div>
 </body>
 </html>
